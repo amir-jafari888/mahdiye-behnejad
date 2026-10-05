@@ -1,0 +1,101 @@
+/* ===== Reserve Section — Mobile ===== */
+
+.rserve-section {
+  padding: 60px 20px;
+  background-color: var(
+    --contrast-color
+  ); /* پس‌زمینه تیره برای تضاد با بقیه سایت */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* درخشش پس‌زمینه برای حس لوکس بودن */
+.rserve-section .rserve__bg-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--primary-color);
+  filter: blur(100px);
+  opacity: 0.2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.rserve-section .reserve-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.rserve-section .rserve__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.rserve-section .rserve__title {
+  color: var(--accent-color);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.rserve-section .rserve__description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* دکمه مدرن با انیمیشن */
+.rserve-section .reserve-now {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--primary-color);
+  color: var(--contrast-color);
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(119, 221, 119, 0.3);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  margin-top: 10px;
+}
+
+.rserve-section .reserve-now i {
+  transition: transform 0.5s ease;
+}
+
+.rserve-section .reserve-now:hover {
+  transform: translateY(-3px);
+  background: var(--accent-color);
+  box-shadow: 0 15px 35px rgba(119, 221, 119, 0.5);
+}
+
+.rserve-section .reserve-now:hover i {
+  transform: scale(1.3) rotate(15deg);
+}
+
+.rserve-section .reserve-now:active {
+  transform: translateY(-1px);
+}
+
+.reserve-now {
+  position: relative;
+  z-index: 9999;
+  pointer-events: auto;
+  cursor: pointer;
+}

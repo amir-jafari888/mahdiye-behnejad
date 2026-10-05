@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  object-fit: cover;
+  font-family: yekan;
+}
+
+@font-face {
+  font-family: yekan;
+  src: url(../fonts/fonts/IRANYekanXVF.woff);
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.section-header {
+  width: 150px;
+  margin: 0 auto 30px auto;
+}
+
+.section-title {
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--contrast-color);
+  font-size: 18px;
+  color: var(--contrast-color);
+}
+
+.section-title-two {
+  font-size: 18px;
+  color: var(--contrast-color);
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: #444; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+:root {
+  --primary-color: #77dd77;
+  --secondary-color: #eadbc8;
+  --contrast-color: #5d4037;
+  --accent-color: #ffffff;
+  --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  --primary-hover: #388e3c;
+  --bg-soft-pink: rgba(255, 170, 183, 0.32);
+  --text-main: #444;
+  --text-muted: #777;
+  --error-color: #ff5252;
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+section {
+  margin-bottom: 64px !important;
+}
+
+body {
+  background-color: var(--secondary-color);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color); /* رنگ اصلی دکمه */
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+
+  /* افکت ظهور نرم */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s,
+    transform 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* وقتی کلاس show اضافه می‌شود */
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+}
+
+.back-to-top i {
+  color: var(--contrast-color);
+  font-size: 1.2rem;
+  z-index: 2; /* آیکون روی دایره باشد */
+}
+
+/* --- استایل SVG برای دایره پیشرفت --- */
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg); /* شروع از بالا */
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.1s linear; /* حرکت نرم دایره */
+  stroke-dasharray: 170; /* دور دایره (2 * pi * r) */
+  stroke-dashoffset: 170; /* مقدار اولیه (صفر پیشرفت) */
+  stroke-linecap: round;
+}
+
+body {
+  position: relative;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.gallery-overlay,
+.gallery .gallery-btn {
+  pointer-events: auto !important;
+}

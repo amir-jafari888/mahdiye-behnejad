@@ -1,0 +1,182 @@
+.services-section {
+  margin-top: 64px;
+  margin-bottom: 64px;
+  padding: 40px 20px;
+  direction: rtl;
+}
+
+.section-header {
+  width: 120px;
+  margin: 0 auto 30px auto;
+}
+
+.section-title {
+  border-bottom: 2px solid var(--primary-color);
+  font-size: 18px;
+  color: var(--contrast-color);
+}
+
+.section-title-two {
+  font-size: 18px;
+  color: var(--contrast-color);
+}
+
+/* --- گرید (بدون تغییر در ساختار تو) --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  max-width: 100%;
+}
+
+/* --- کارت (بدون تغییر در ساختار تو) --- */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px; /* کمی گردتر برای زیبایی بیشتر، اگر دوست نداشتی به 4px تغییر بده */
+  cursor: pointer;
+  height: 220px;
+  background-color: var(
+    --contrast-color
+  ); /* پس‌زمینه برای زمانی که تصویر لود نشده */
+}
+
+.services-section .services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 60px 10%;
+}
+
+/* کارت اول و دوم از هر ۶ تا (بزرگ) */
+.services-section .service-card:nth-child(6n + 1),
+.services-section .service-card:nth-child(6n + 2) {
+  grid-column: span 2;
+  height: 400px;
+}
+
+/* چهار کارت بعدی (کوچک) */
+.services-section
+  .service-card:not(:nth-child(6n + 1)):not(:nth-child(6n + 2)) {
+  grid-column: span 1;
+  height: 200px;
+}
+
+/* --- تصویر --- */
+.card-image {
+  width: 100%;
+  height: 100%;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- لایه Overlay (تطبیق با پالت) --- */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  /* حالت اول: تیره و محو */
+  background: linear-gradient(
+    to top,
+    rgba(93, 64, 55, 0.8) 0%,
+    rgba(93, 64, 55, 0.2) 50%,
+    transparent 100%
+  );
+  transition: var(--transition);
+  z-index: 1;
+}
+
+/* حالت هاور Overlay (تطبیق با پالت) */
+.service-card:hover .card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(93, 64, 55, 0.9) 0%,
+    /* قهوه‌ای تیره برای خوانایی متن */ rgba(119, 221, 119, 0.4) 100%
+      /* سبز ملایم در قسمت بالا برای زیبایی */
+  );
+}
+
+/* --- محتوای متنی (حفظ ساختار قبلی تو) --- */
+.card-content {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 20px;
+  z-index: 2;
+  color: var(--accent-color); /* سفید */
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  transition: transform 0.5s ease;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: var(--secondary-color); /* کرم برای توضیحات */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  margin-top: 8px;
+}
+
+.learn-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--primary-color); /* سبز ملایم */
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+/* یک افکت کوچک و زیبا برای لینک (اضافه شده) */
+.learn-more::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.learn-more:hover::after {
+  width: 100%;
+}
+
+/* --- منطق هاور (حفظ دقیق رفتار قبلی تو) --- */
+
+/* ۱. زوم تصویر */
+.service-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+/* ۲. حرکت عنوان به بالا */
+.service-card:hover .card-title {
+  transform: translateY(-10px);
+}
+
+/* ۳. ظاهر شدن توضیحات و لینک */
+.service-card:hover .card-description,
+.service-card:hover .learn-more {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ۴. افکت سایه روی کل کارت (اضافه شده برای عمق بیشتر) */
+.service-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}

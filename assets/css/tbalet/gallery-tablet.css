@@ -1,0 +1,120 @@
+.gallery {
+  margin-top: 64px;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 64px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 300px !important;
+  border-radius: 16px;
+}
+
+.section-title {
+  border-bottom: 2px solid black;
+  font-size: 18px;
+}
+
+.section-title-two {
+  font-size: 18px;
+}
+
+/* ====== جزئیات اسلاید - موبایل (افزودنی) ====== */
+.gallery .gallery-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  border-radius: 16px;
+  background: linear-gradient(
+    to top,
+    rgba(93, 64, 55, 0.75),
+    rgba(93, 64, 55, 0) 60%
+  );
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.gallery .gallery-tag {
+  align-self: flex-start;
+  width: fit-content;
+  background: var(--primary-color);
+  color: var(--contrast-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: var(--transition);
+}
+
+.gallery .gallery-title {
+  margin: 0;
+  color: var(--accent-color);
+  font-size: 1.05rem;
+  transform: translateY(14px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gallery .gallery-desc {
+  margin: 4px 0 0;
+  color: var(--secondary-color);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  transform: translateY(14px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gallery .gallery-btn {
+  align-self: flex-start;
+  margin-top: 10px;
+  padding: 9px 18px;
+  background: var(--contrast-color);
+  color: var(--accent-color);
+  border-radius: 24px;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  pointer-events: auto;
+  transform: translateY(14px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+/* هاور روی اسلاید: متنها بالا میآیند */
+.gallery .swiper-slide:hover .gallery-title,
+.gallery .swiper-slide:hover .gallery-desc,
+.gallery .swiper-slide:hover .gallery-tag,
+.gallery .swiper-slide:hover .gallery-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery .gallery-overlay {
+  padding: 22px;
+  border-radius: 18px;
+}
+
+.gallery .gallery-tag {
+  font-size: 0.78rem;
+}
+
+.gallery .gallery-title {
+  font-size: 1.25rem;
+}
+
+.gallery .gallery-desc {
+  font-size: 0.9rem;
+}
+
+.gallery .gallery-btn {
+  font-size: 0.9rem;
+  padding: 11px 22px;
+}

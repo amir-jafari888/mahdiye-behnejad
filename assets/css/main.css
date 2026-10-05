@@ -1,0 +1,6 @@
+@import url(./mobile/mobile.css) only screen and (max-width:600px);
+@import url(./tbalet/tablet.css) only screen and (min-width:601px) and (max-width:1009px);
+@import url(./desktop/desktop.css) only screen and (min-width:1010px);
+@import url(./settings.css);
+@import url(./form.css);
+@import url(./user-rexevation.css);

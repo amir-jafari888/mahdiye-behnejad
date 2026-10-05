@@ -1,0 +1,345 @@
+.head-container {
+  width: 100%;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1001; /* بالاتر از منو باشد */
+  border-bottom: 3px solid black;
+  /* margin-bottom: 64px; */
+}
+
+/* --- ۱. هدر ثابت (Sticky/Fixed Header) --- */
+.main-header {
+  position: fixed; /* هدر در بالا ثابت می‌ماند */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50; /* بالاتر از همه چیز */
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  padding-top: 80px;
+}
+
+.head-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: rgba(234, 219, 200, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+  border-bottom: 1px solid rgba(93, 64, 55, 0.12);
+}
+
+.middle-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+}
+.logo {
+  display: block;
+  width: auto;
+  height: 42px;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+.humburgermenu {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(93, 64, 55, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--contrast-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 8px 22px rgba(93, 64, 55, 0.08);
+  z-index: 1002;
+}
+.humburgermenu:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 28px rgba(93, 64, 55, 0.12);
+}
+.humburgermenu.active {
+  background: var(--primary-color);
+  color: var(--accent-color);
+  border-color: transparent;
+  box-shadow: 0 10px 25px rgba(119, 221, 119, 0.28);
+}
+.humburgermenu:focus-visible {
+  outline: 3px solid rgba(119, 221, 119, 0.45);
+  outline-offset: 3px;
+}
+.hamburger-icon-wrapper {
+  width: 26px;
+  height: 26px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hamburger-svg,
+.close-menu {
+  width: 25px;
+  height: 25px;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+}
+.close-menu {
+  display: none;
+}
+.humburgermenu.active .hamburger-svg {
+  display: none;
+}
+.humburgermenu.active .close-menu {
+  display: block;
+  transform: rotate(90deg);
+}
+.humburgermenu.active:hover .close-menu {
+  transform: rotate(180deg);
+}
+.menu-overlay {
+  position: fixed;
+  height: 100vh;
+  inset: 0;
+  background: rgba(91, 91, 91, 0.752);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+  z-index: 99;
+}
+.menu-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60vw;
+  height: 100vh;
+  height: 100dvh;
+  padding: 28px 24px;
+  background: #eadbc8;
+  border-left: 1px solid rgba(93, 64, 55, 0.14);
+  border-radius: 28px 0 0 28px;
+  box-shadow: -18px 0 45px rgba(93, 64, 55, 0.18);
+  transform: translateX(105%);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 100;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.mobile-menu.open {
+  transform: translateX(0);
+}
+.mobile-menu::before {
+  content: "MENU";
+  display: block;
+  margin: 0 0 30px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(93, 64, 55, 0.16);
+  color: rgba(93, 64, 55, 0.35);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  direction: ltr;
+}
+.menu-links {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.menu-links li {
+  width: 100%;
+  padding: 0;
+  opacity: 0;
+  transform: translateX(24px);
+}
+.mobile-menu.open .menu-links li {
+  animation: menuItemIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.mobile-menu.open .menu-links li:nth-child(1) {
+  animation-delay: 0.08s;
+}
+.mobile-menu.open .menu-links li:nth-child(2) {
+  animation-delay: 0.13s;
+}
+.mobile-menu.open .menu-links li:nth-child(3) {
+  animation-delay: 0.18s;
+}
+.mobile-menu.open .menu-links li:nth-child(4) {
+  animation-delay: 0.23s;
+}
+.mobile-menu.open .menu-links li:nth-child(5) {
+  animation-delay: 0.28s;
+}
+.mobile-menu.open .menu-links li:nth-child(6) {
+  animation-delay: 0.33s;
+}
+.menu-links a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 60px;
+  padding: 12px 4px 12px 0;
+  border-bottom: 1px solid rgba(93, 64, 55, 0.12);
+  background: transparent;
+  color: var(--contrast-color);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition:
+    color 0.3s ease,
+    padding-right 0.3s ease;
+}
+.menu-links a::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  background: var(--primary-color);
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.menu-links a::after {
+  content: "↗";
+  font-size: 17px;
+  font-weight: 400;
+  opacity: 0.35;
+  transform: translateX(0);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+.menu-links a:hover,
+.menu-links a:focus-visible {
+  color: var(--contrast-color);
+  padding-right: 8px;
+  outline: none;
+}
+.menu-links a:hover::before,
+.menu-links a:focus-visible::before {
+  width: 100%;
+}
+.menu-links a:hover::after,
+.menu-links a:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-5px);
+}
+@keyframes menuItemIn {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* کانتینر دکمه */
+.reserve-button {
+  display: flex;
+  justify-content: center;
+}
+
+/* خود دکمه */
+.reserve-btn {
+  /* این سه خط جادوی وسط‌چین کردن هستند */
+  display: inline-flex;
+  align-items: center; /* وسط‌چین کردن عمودی */
+  justify-content: center; /* وسط‌چین کردن افقی */
+  width: 100%;
+  max-width: 320px; /* اگر می‌خوای همون وسط و جمع‌وجور بایسته */
+  border: 0;
+  padding: 4px 20px; /* بزرگ‌تر و خوش‌خوان‌تر */
+  border-radius: 999px; /* کپسولی */
+  background: var(--primary-color); /* سبز پسته‌ای */
+  color: var(--accent-color); /* متن سفید */
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(119, 221, 119, 0.25),
+    0 2px 8px rgba(93, 64, 55, 0.1);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* افکت لایه‌ی درخشش روی دکمه */
+.reserve-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 45%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.reserve-btn:hover {
+  background: var(--contrast-color); /* قهوه‌ای چوبی */
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 35px rgba(93, 64, 55, 0.22),
+    0 4px 12px rgba(93, 64, 55, 0.14);
+}
+
+.reserve-btn:hover::before {
+  transform: translateX(120%);
+}
+
+.reserve-btn:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+.reserve-btn:focus-visible {
+  outline: 3px solid rgba(93, 64, 55, 0.25);
+  outline-offset: 3px;
+}
+
+.reserve-text {
+  line-height: 24px;
+}

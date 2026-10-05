@@ -1,0 +1,57 @@
+.details-header {
+  padding: 20px 7%;
+}
+.details-page {
+  width: 86%;
+  padding-top: 70px;
+}
+.service-details {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 60px;
+  padding: 45px;
+  border-radius: 40px;
+}
+.service-details__media {
+  height: 520px;
+  grid-column: 1;
+}
+.service-details__content {
+  grid-column: 2;
+}
+.service-details__title {
+  font-size: 3.2rem;
+}
+.service-details__description {
+  max-width: 650px;
+  font-size: 1.05rem;
+}
+.service-details__pricing {
+  max-width: 600px;
+  gap: 18px;
+}
+.price-box {
+  padding: 20px;
+}
+.price-box__value {
+  font-size: 1.2rem;
+}
+.service-details__cta {
+  width: 260px;
+  padding: 17px;
+}
+.service-gallery {
+  margin-top: 80px;
+}
+.service-gallery__heading h2 {
+  font-size: 2rem;
+}
+.service-gallery__grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.service-gallery__item {
+  height: 250px;
+  border-radius: 25px;
+}

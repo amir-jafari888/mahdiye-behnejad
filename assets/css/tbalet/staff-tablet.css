@@ -1,0 +1,184 @@
+.staff-section {
+  padding: 68px 32px 86px;
+}
+.staff-container {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  justify-content: center;
+}
+.staff-card {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  padding: 26px 16px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 29px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.84),
+    rgba(234, 219, 200, 0.3)
+  );
+  box-shadow:
+    0 12px 30px rgba(93, 64, 55, 0.08),
+    0 3px 9px rgba(93, 64, 55, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.5s ease,
+    border-color 0.45s ease;
+}
+.staff-card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -58px;
+  right: -52px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(119, 221, 119, 0.08);
+  transition:
+    transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1),
+    background 0.5s ease;
+}
+.staff-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 10px;
+  background: var(--primary-color);
+  transform: translateX(-50%);
+  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.staff-image-wrap {
+  position: relative;
+  width: 138px;
+  height: 138px;
+  margin: 0 auto 18px;
+  padding: 3px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  background: var(--accent-color);
+  box-shadow:
+    0 0 0 2px rgba(119, 221, 119, 0.11),
+    0 13px 30px rgba(93, 64, 55, 0.13);
+  transition:
+    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.5s ease;
+}
+.staff-image-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 1px solid rgba(119, 221, 119, 0.19);
+  border-radius: 50%;
+  transition:
+    transform 0.65s ease,
+    opacity 0.4s ease;
+}
+.staff-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.staff-info {
+  position: relative;
+  z-index: 2;
+  padding: 0 5px;
+}
+.staff-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--contrast-color);
+  line-height: 1.8;
+  transition: transform 0.4s ease;
+}
+.staff-specialty {
+  margin: 4px 0 13px;
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+.staff-details-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 116px;
+  min-height: 36px;
+  padding: 0 16px;
+  border: 1px solid rgba(119, 221, 119, 0.35);
+  border-radius: 12px;
+  background: rgba(119, 221, 119, 0.09);
+  color: var(--contrast-color);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 5px 14px rgba(93, 64, 55, 0.06);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    background 0.4s ease,
+    color 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+.staff-card:hover {
+  transform: translateY(-9px);
+  border-color: rgba(119, 221, 119, 0.4);
+  box-shadow:
+    0 25px 52px rgba(93, 64, 55, 0.14),
+    0 6px 14px rgba(93, 64, 55, 0.06);
+}
+.staff-card:hover::before {
+  transform: scale(1.38);
+  background: rgba(119, 221, 119, 0.16);
+}
+.staff-card:hover::after {
+  width: 40%;
+}
+.staff-card:hover .staff-image-wrap {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 0 4px rgba(119, 221, 119, 0.11),
+    0 19px 38px rgba(93, 64, 55, 0.18);
+}
+.staff-card:hover .staff-image-wrap::before {
+  transform: scale(1.08);
+  opacity: 0.9;
+}
+.staff-card:hover .staff-name {
+  transform: translateY(-2px);
+}
+.staff-card:hover .staff-details-btn {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 9px 20px rgba(119, 221, 119, 0.24);
+}
+.staff-details-btn:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 21px rgba(119, 221, 119, 0.26);
+}
+.staff-details-btn:active {
+  transform: translateY(0) scale(0.97);
+}

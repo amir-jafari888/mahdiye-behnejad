@@ -1,0 +1,34 @@
+.details-page {
+  width: 88%;
+  padding-top: 50px;
+}
+.service-details {
+  padding: 28px;
+  border-radius: 32px;
+  gap: 30px;
+}
+.service-details__media {
+  height: 400px;
+}
+.service-details__title {
+  font-size: 2.4rem;
+}
+.service-details__description {
+  font-size: 1rem;
+}
+.service-details__pricing {
+  gap: 15px;
+}
+.price-box {
+  padding: 18px;
+}
+.service-details__cta {
+  width: 240px;
+}
+.service-gallery__grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.service-gallery__item {
+  height: 210px;
+}

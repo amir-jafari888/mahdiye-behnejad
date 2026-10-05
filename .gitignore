@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# User uploaded files
+uploads/
+
+# Local database configuration
+partials/db.php
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log

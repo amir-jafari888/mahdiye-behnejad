@@ -1,0 +1,130 @@
+.main-header {
+  position: fixed;
+  margin-bottom: 64px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: var(--secondary-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.head-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+}
+
+/* --- حذف المان‌های همبرگری در دسکتاپ --- */
+.humburgermenu,
+.menu-overlay,
+.close-menu-container {
+  display: none !important;
+}
+
+/* --- تبدیل Mobile-Menu به نوار ناوبری افقی --- */
+.mobile-menu {
+  position: static;
+  width: auto;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row; /* افقی کردن */
+  align-items: center;
+  gap: 30px; /* فاصله بین لینک‌ها */
+}
+
+.menu-links li {
+  width: auto;
+  text-align: center;
+  padding: 0;
+  border-bottom: none; /* حذف خطوط جداکننده */
+}
+
+.menu-links a {
+  text-decoration: none;
+  color: var(--contrast-color);
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  padding: 10px 0;
+  transition: var(--transition-smooth);
+}
+
+/* افکت هاور مدرن */
+.menu-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2.5px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.menu-links a:hover {
+  color: var(--primary-color);
+}
+
+.menu-links a:hover::after {
+  width: 100%;
+}
+
+/* --- لوگو --- */
+.logo {
+  width: 180px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* --- دکمه رزرو --- */
+.reserve-button {
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+.reserve-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 0;
+  padding: 8px 24px;
+  border-radius: 999px;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(119, 221, 119, 0.3);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.reserve-btn:hover {
+  background: var(--contrast-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(93, 64, 55, 0.2);
+}
+
+.reserve-btn a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,118 @@
+.hero {
+  width: 100%;
+  padding: 12px 6px;
+  margin: 64px 0;
+  position: relative;
+}
+
+.heroSwiper .swiper-slide {
+  width: 80% !important;
+  margin-bottom: 26px !important;
+  transition: all 0.4s ease;
+  transform: scale(0.9);
+  filter: grayscale(0.8);
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.img-slider {
+  height: 400px !important;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px; /* هماهنگ با اسلاید */
+}
+
+.heroSwiper .swiper-slide {
+  transition: all 0.4s ease;
+  transform: scale(0.9);
+  filter: grayscale(0.8);
+  position: relative;
+}
+
+.heroSwiper .swiper-slide.swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.swiper-pagination-bullet {
+  background: #d1ead1 !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary-color) !important;
+  opacity: 1 !important;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* گرادینت از سمت راست به چپ (چون متن راست است) */
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  z-index: 1;
+  pointer-events: none; /* باعث می‌شود کلیک روی متن مختل نشود */
+}
+
+.hero-text-container {
+  width: 60%;
+  position: absolute;
+  bottom: 40px; /* فاصله از پایین */
+  right: 30px; /* فاصله از راست */
+  z-index: 2; /* بالاتر از لایه تاریک */
+  color: #fff;
+  direction: rtl;
+  text-align: right;
+}
+
+.hero-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.hero-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* دکمه داخل اسلایدر */
+.hero-btn-link {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: var(--primary-color);
+  color: #241a14;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.hero-btn-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* تنظیم پجینیشن (کدهای خودت) */
+.swiper-pagination-bullet {
+  background: #d1ead1 !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary-color) !important;
+  opacity: 1 !important;
+}
